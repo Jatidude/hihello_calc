@@ -154,7 +154,7 @@ async function main() {
     for (let button of answer) {
       if (isButton(button)) {
         calc.pressButton(button);
-        console.log(calc);
+        // console.log(calc);
       }
     }
     calc.printDisplay();
