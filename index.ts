@@ -34,31 +34,35 @@ class Calculator {
   display: number = 0;
   currentOperator: Operator | null = null;
   overwriteMode: boolean = true;
+  equalsMode: boolean = true;
 
   handleNumber(num: number) {
     // If we're in overwrite mode that means we probably just hit an operator
     if (this.overwriteMode) {
-      this.display = num;
-      this.overwriteMode = false;
+      this.buffer1 = num;
     } else {
-      this.display = this.display * 10 + num;
+      this.buffer1 = this.buffer1 * 10 + num;
     }
-    this.buffer1 = this.display;
+    this.display = this.buffer1;
+    this.equalsMode = false;
+    this.overwriteMode = false;
   }
 
   handlePlus() {
-    this.operate();
-    if (this.currentOperator !== "+") {
+    if (!this.equalsMode) {
+      this.operate();
       this.buffer2 = this.buffer1;
+      this.buffer1 = 0;
     }
     this.currentOperator = "+";
     this.overwriteMode = true;
   }
 
   handleMinus() {
-    this.operate();
-    if (this.currentOperator !== "-") {
+    if (!this.equalsMode) {
+      this.operate();
       this.buffer2 = this.buffer1;
+      this.buffer1 = 0;
     }
     this.currentOperator = "-";
     this.overwriteMode = true;
@@ -66,12 +70,13 @@ class Calculator {
 
   operate() {
     if (this.currentOperator === "+") {
-      this.buffer1 = this.buffer1 + this.buffer2;
-      this.display = this.buffer1;
+      this.buffer2 = this.buffer1 + this.buffer2;
+      this.display = this.buffer2;
     } else if (this.currentOperator === "-") {
-      this.buffer1 = this.buffer1 - this.buffer2;
-      this.display = this.buffer1;
+      this.buffer2 = this.buffer2 - this.buffer1;
+      this.display = this.buffer2;
     }
+    this.equalsMode = false;
   }
 
   pressButton(button: Button) {
@@ -81,6 +86,7 @@ class Calculator {
       this.clear();
     } else if (button === "=") {
       this.operate();
+      this.equalsMode = true;
     } else if (button === "+") {
       this.handlePlus();
     } else if (button === "-") {
@@ -95,7 +101,6 @@ class Calculator {
     this.buffer2 = 0;
     this.display = 0;
     this.currentOperator = null;
-    this.overwriteMode = true;
   }
 
   printDisplay() {
