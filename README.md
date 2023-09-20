@@ -21,16 +21,16 @@ be entered as “!”, the “X” button should be entered as “*” and the
 the character shown on the button in the image to the right.
 
 ## Features
-- [ ] Input numbers
-- [ ] Input operators
-  - [ ] +
-  - [ ] -
-  - [ ] *
-  - [ ] /
-- [ ] Display current state on enter
-- [ ] Clear button (c)
-- [ ] +/- button (!)
-- [ ] = button
+- [x] Input numbers
+- [x] Input operators
+  - [x] +
+  - [x] -
+  - [x] *
+  - [x] /
+- [x] Display current state on enter
+- [x] Clear button (c)
+- [x] +/- button (!)
+- [x] = button
 
 ## Plan
 
