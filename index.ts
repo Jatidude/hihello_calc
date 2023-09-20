@@ -78,6 +78,16 @@ class Calculator {
     this.overwriteMode = true;
   }
 
+  handleDiv() {
+    if (!this.equalsMode) {
+      this.operate();
+      this.buffer2 = this.buffer1;
+      this.buffer1 = 0;
+    }
+    this.currentOperator = "/";
+    this.overwriteMode = true;
+  }
+
   operate() {
     if (this.currentOperator === "+") {
       this.buffer2 = this.buffer1 + this.buffer2;
@@ -87,6 +97,9 @@ class Calculator {
       this.display = this.buffer2;
     } else if (this.currentOperator === "*") {
       this.buffer2 = this.buffer2 * this.buffer1;
+      this.display = this.buffer2;
+    } else if (this.currentOperator === "/") {
+      this.buffer2 = this.buffer2 / this.buffer1;
       this.display = this.buffer2;
     }
     this.equalsMode = false;
@@ -106,6 +119,8 @@ class Calculator {
       this.handleMinus();
     } else if (button === "*") {
       this.handleMult();
+    } else if (button === "/") {
+      this.handleDiv();
     } else {
       throw new Error(`Button "${button}" is not handled`);
     }
