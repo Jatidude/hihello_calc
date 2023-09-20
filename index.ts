@@ -89,8 +89,8 @@ class Calculator {
   }
 
   handleNegate() {
-    this.buffer2 = this.buffer2 * -1;
-    this.display = this.buffer2;
+    this.buffer1 = this.buffer1 * -1;
+    this.display = this.buffer1;
   }
 
   operate() {
