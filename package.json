@@ -1,0 +1,23 @@
+{
+  "name": "hihello_calc",
+  "version": "1.0.0",
+  "description": "Example project for HiHello Technical Interview",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jatidude/hihello_calc.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jatidude/hihello_calc/issues"
+  },
+  "homepage": "https://github.com/Jatidude/hihello_calc#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
