@@ -4,7 +4,12 @@ Example project for HiHello Technical Interview
 
 ## Meta
 Start time: 2023-09-21 14:00
-End time: ???
+
+End time: 2023-09-21 15:57
+
+## Instructions
+
+Run `npm start` in the main directory to run the project.
 
 ## Problem Statement
 Build a simple four function (addition, subtraction, multiplication,
