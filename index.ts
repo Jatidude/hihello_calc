@@ -88,6 +88,11 @@ class Calculator {
     this.overwriteMode = true;
   }
 
+  handleNegate() {
+    this.buffer2 = this.buffer2 * -1;
+    this.display = this.buffer2;
+  }
+
   operate() {
     if (this.currentOperator === "+") {
       this.buffer2 = this.buffer1 + this.buffer2;
@@ -121,6 +126,8 @@ class Calculator {
       this.handleMult();
     } else if (button === "/") {
       this.handleDiv();
+    } else if (button === "!") {
+      this.handleNegate();
     } else {
       throw new Error(`Button "${button}" is not handled`);
     }
