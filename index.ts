@@ -65,6 +65,8 @@ class Calculator {
   pressButton(button: Button) {
     if (button.match(/^[0-9]$/)) {
       this.handleNumber(Number(button));
+    } else if (button === "=") {
+      this.operate();
     } else if (button === "+") {
       this.handlePlus();
     } else {
